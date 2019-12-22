@@ -13,4 +13,5 @@
 [Spring内置数据库](https://docs.spring.io/spring-boot/docs/2.0.0.RC1/reference/htmlsingle/#boot-features-embedded-database-support)  
 [Flyway Migration文档](https://flywaydb.org/getstarted/firststeps/maven)  
 [elastic中文社区](https://elasticsearch.cn)   
-[Lombok集成](https://projectlombok.org)
+[Lombok集成](https://projectlombok.org)  
+[thymeleaf文档](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#using-theach)
