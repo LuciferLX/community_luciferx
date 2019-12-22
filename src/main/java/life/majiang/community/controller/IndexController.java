@@ -1,5 +1,6 @@
 package life.majiang.community.controller;
 
+import life.majiang.community.dto.PaginationDTO;
 import life.majiang.community.dto.QuestionDTO;
 import life.majiang.community.mapper.QuestionMapper;
 import life.majiang.community.mapper.UserMapper;
@@ -24,7 +25,9 @@ public class IndexController {
     private QuestionService questionService;
     @GetMapping("/")
     public String index(HttpServletRequest request,
-                        Model model){
+                        Model model,
+                        @RequestParam(name="page",defaultValue = "1") Integer page,
+                        @RequestParam(name="size",defaultValue = "2") Integer size){    //默认每一页显示两条信息
         Cookie[] cookies = request.getCookies();
         if (cookies!=null&& cookies.length!=0) {
             for (Cookie cookie : cookies) {
@@ -39,8 +42,8 @@ public class IndexController {
             }
         }
 
-        List<QuestionDTO> questionList=questionService.list();
-        model.addAttribute("questions",questionList);
+        PaginationDTO pagination=questionService.list(page,size);
+        model.addAttribute("pagination",pagination);
         return "index";
     }
 }
