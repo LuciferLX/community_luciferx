@@ -15,19 +15,8 @@ public class PaginationDTO {
     private List<Integer> pages=new ArrayList<>();
     private Integer totalPage;
 
-    public void setPagination(Integer totalCount, Integer page, Integer size) {
-        if(totalCount%size==0){
-            totalPage=totalCount/size;
-        }else {
-            totalPage=totalCount/size+1;
-        }
-
-        if(page<1){         //容错显示，当输入超出界限的页面值的情况
-            page=1;
-        }
-        if(page>totalPage){
-            page=totalPage;
-        }
+    public void setPagination(Integer totalPage, Integer page) {
+        this.totalPage=totalPage;
         this.page=page;
         pages.add(page);
         for(int i=1;i<=3;i++){       //设置每次出现的页码
