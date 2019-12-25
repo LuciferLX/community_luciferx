@@ -14,4 +14,5 @@
 [Flyway Migration文档](https://flywaydb.org/getstarted/firststeps/maven)  
 [elastic中文社区](https://elasticsearch.cn)   
 [Lombok集成](https://projectlombok.org)  
-[thymeleaf文档](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#using-theach)
+[thymeleaf文档](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#using-theach)  
+[Spring MVC](https://docs.spring.io/spring/docs/5.0.3.RELEASE/spring-framework-reference/web.html#mvc-config-interceptors)
