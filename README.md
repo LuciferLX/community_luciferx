@@ -15,4 +15,10 @@
 [elastic中文社区](https://elasticsearch.cn)   
 [Lombok集成](https://projectlombok.org)  
 [thymeleaf文档](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#using-theach)  
-[Spring MVC](https://docs.spring.io/spring/docs/5.0.3.RELEASE/spring-framework-reference/web.html#mvc-config-interceptors)
+[Spring MVC](https://docs.spring.io/spring/docs/5.0.3.RELEASE/spring-framework-reference/web.html#mvc-config-interceptors)  
+[MyBatis Generator](http://mybatis.org/generator/configreference/xmlconfig.html)  
+
+
+```aidl
+mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
+```
