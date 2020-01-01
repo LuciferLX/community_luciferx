@@ -27,15 +27,15 @@ body {
     margin-top: 15px;
 }
 
-.question-title{
+.question-title {
     margin-top: 25px;
 }
 
-.question-tag{
+.question-tag {
     margin-right: 5px;
 }
 
-.question-related{
+.question-related {
     line-height: 20px;
     font-size: 12px;
     margin-left: 0;
@@ -43,8 +43,18 @@ body {
     padding-left: 0;
 }
 
-.question-wechat{
+.question-wechat {
     width: 100%;
+}
+
+.publish-tag-tab {
+    display: none;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.publish-tag-tab.label-info{
+    margin-right: 10px;
 }
 
 .community-menu {
@@ -104,7 +114,7 @@ body {
     cursor: pointer;
 }
 
-.menu .comment-icon{
+.menu .comment-icon {
     font-size: 15px;
     cursor: pointer;
 }
