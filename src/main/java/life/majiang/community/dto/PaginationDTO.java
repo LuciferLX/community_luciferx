@@ -5,8 +5,8 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 @Data
-public class PaginationDTO {
-    private List<QuestionDTO> questions;
+public class PaginationDTO<T> {
+    private List<T> data;
     private boolean showPrevious;    //是否有向前按钮默认为false
     private boolean showFirstPage;
     private boolean showNext;

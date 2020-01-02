@@ -110,6 +110,7 @@ function collapseComments(e) {
 function showSelectTag() {
     $("#select-tag").show();
 }
+
 function selectTag(e) {
     var value=e.getAttribute("data-tag");
     var previous = $("#tag").val();
