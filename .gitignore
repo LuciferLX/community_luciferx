@@ -3,7 +3,8 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
-
+### 这样就不会把日志上传到GitHub上了 ###
+logs/
 ### STS ###
 .apt_generated
 .classpath

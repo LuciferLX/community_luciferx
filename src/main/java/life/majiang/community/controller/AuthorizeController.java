@@ -6,6 +6,8 @@ import life.majiang.community.mapper.UserMapper;
 import life.majiang.community.model.User;
 import life.majiang.community.provider.GithubProvider;
 import life.majiang.community.service.UserService;
+import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.XSlf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,7 @@ import java.util.UUID;
  *
  */
 @Controller
+@Slf4j   //lombok中会自动加载log的注解
 public class AuthorizeController {
 
     @Autowired
@@ -59,6 +62,7 @@ public class AuthorizeController {
             response.addCookie(new Cookie("token",token));
             return "redirect:/";        //重定向到原来的页面
         }else{
+            log.error("callback get github error, {}",githubUser);  //这样当出错时就会打印错误信息，会把后一个参数值自动放到空括号里
             //登录失败重新登录
             return "redirect:/";
         }

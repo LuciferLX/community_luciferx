@@ -1,0 +1,20 @@
+2020-01-06 21:36:26.933  INFO 935 --- [restartedMain] l.m.community.CommunityApplication       : Starting CommunityApplication on AppledeMacBook-Pro.local with PID 935 (/Users/apple/IdeaProjects/community/target/classes started by apple in /Users/apple/IdeaProjects/community)
+2020-01-06 21:36:26.934  INFO 935 --- [restartedMain] l.m.community.CommunityApplication       : No active profile set, falling back to default profiles: default
+2020-01-06 21:36:27.079  WARN 935 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
+2020-01-06 21:36:27.085  INFO 935 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-01-06 21:36:27.085  INFO 935 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-01-06 21:36:27.086  INFO 935 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-01-06 21:36:27.093  INFO 935 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-01-06 21:36:27.093  INFO 935 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 157 ms
+2020-01-06 21:36:27.104  INFO 935 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2020-01-06 21:36:27.109  INFO 935 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2020-01-06 21:36:27.109  INFO 935 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/community'
+2020-01-06 21:36:27.230  INFO 935 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-01-06 21:36:27.243  INFO 935 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-01-06 21:36:27.291  INFO 935 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-01-06 21:36:27.302  INFO 935 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-01-06 21:36:27.303  INFO 935 --- [restartedMain] l.m.community.CommunityApplication       : Started CommunityApplication in 5.416 seconds (JVM running for 2459.154)
+2020-01-06 21:36:27.304  INFO 935 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-01-06 21:37:18.219  INFO 935 --- [Thread-14] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-01-06 21:37:18.221  INFO 935 --- [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2020-01-06 21:37:18.257  INFO 935 --- [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
