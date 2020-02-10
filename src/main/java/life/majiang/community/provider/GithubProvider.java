@@ -10,6 +10,7 @@ import java.io.IOException;
 
 @Component
 public class GithubProvider {
+    //按照accessTokenDTO中存储的信息建立新请求去访问GitHub的access_token接口以获得用户的access_token
     public String getAccessToken(AccessTokenDTO accessTokenDTO){
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
         OkHttpClient client = new OkHttpClient();
@@ -29,6 +30,7 @@ public class GithubProvider {
         return null;
     }
 
+    //按照返回的access_token建立新请求去访问GitHub的user接口以获得用户的详细信息如名字头像等
     public GithubUser getUser(String accessToken){
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()

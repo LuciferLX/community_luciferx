@@ -30,7 +30,7 @@ public class PublishController {
         model.addAttribute("tag", question.getTag());
         model.addAttribute("id", question.getId());
         model.addAttribute("tags", TagCache.get());
-        return "publish";
+        return "publish";   //会去模版目录访问叫publish的html文件
     }
 
     @GetMapping("/publish")
