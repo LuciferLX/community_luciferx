@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserService {
+public class UserService {//根据每次传入User的AccountId是否在数据库中已经存在决定是新建还是更新
     @Autowired
     private UserMapper userMapper;
 

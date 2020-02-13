@@ -3,6 +3,7 @@
 <head>
     <title>发布-论坛项目</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--下面是应用的css样式文件，包括了Bootstrap自带的样式和自己调整的community.css文件-->
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="/css/community.css"/>
@@ -14,14 +15,14 @@
 
 </head>
 <body>
-<div th:insert="~{navigation :: nav}"></div>
-<div class="container-fluid main">
+<div th:insert="~{navigation :: nav}"></div><!--将navigation中写的的栏目插入到这个页面-->
+<div class="container-fluid main"><!--流式布局最外层需要有container-fluid这种Bootstrap自带的css样式-->
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 发起</h2>
-
+            <!--action表示当点击时跳转的页面，而且这里是post动作，会触发PublishController的doPublish方法-->
             <form action="/publish" method="post">
-                <input type="hidden" name="id" th:value="${id}">
+                <input type="hidden" name="id" th:value="${id}"><!--hidden表示这个ID信息需要传回来但不显示-->
                 <div class="form-group">
                     <label for="title">问题标题（简单扼要）：</label>
                     <input type="text" class="form-control" th:value="${title}" id="title" name="title"
@@ -84,7 +85,7 @@
                         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                             <div class="alert alert-danger col-lg-9 col-md-12 col-sm-12 col-xs-12"
                                  th:text="${error}"
-                                 th:if="${error!=null}">
+                                 th:if="${error!=null}">    <!--如果doPublish方法中添加了error的值就会在这里显示-->
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">

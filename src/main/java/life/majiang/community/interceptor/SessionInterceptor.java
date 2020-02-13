@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Service
-public class SessionInterceptor implements HandlerInterceptor {
+public class SessionInterceptor implements HandlerInterceptor {//这就是一个Spring MVC中的拦截器类，对登录请求进行拦截处理
     @Autowired
     private UserMapper userMapper;
     @Autowired
@@ -24,7 +24,7 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Cookie[] cookies = request.getCookies();
-        if (cookies!=null&& cookies.length!=0) {
+        if (cookies!=null&& cookies.length!=0) {//按照cookie获取相应的token，再用token从数据库中获取用户对象
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("token")) {
                     String token = cookie.getValue();

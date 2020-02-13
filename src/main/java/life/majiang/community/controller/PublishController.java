@@ -33,21 +33,21 @@ public class PublishController {
         return "publish";   //会去模版目录访问叫publish的html文件
     }
 
-    @GetMapping("/publish")
+    @GetMapping("/publish")     //如果是get就执行这个方法
     public String publish(Model model) {
         model.addAttribute("tags", TagCache.get());
         return "publish";
     }
 
-    @PostMapping("/publish")
+    @PostMapping("/publish")    //如果从publish.html页面传来的是post动作就执行这个方法渲染页面
     public String doPublish(
             @RequestParam(value = "title", required = false) String title,
             @RequestParam(value = "description", required = false) String description,
             @RequestParam(value = "tag", required = false) String tag,
             @RequestParam(value = "id", required = false) Long id,
             HttpServletRequest request,
-            Model model) {
-        model.addAttribute("title", title);
+            Model model) {      //用model来完成前端页面和后端的信息传递，model中用类似于K-V对来保存信息
+        model.addAttribute("title", title);         //先把信息放入model就可以实现回显功能了
         model.addAttribute("description", description);
         model.addAttribute("tag", tag);
         model.addAttribute("tags", TagCache.get());
@@ -74,7 +74,7 @@ public class PublishController {
             return "publish";
         }
 
-        Question question = new Question();
+        Question question = new Question();     //创建新的question对象保存信息并更新数据库中的QUESTION表的记录
         question.setTitle(title);
         question.setDescription(description);
         question.setTag(tag);

@@ -20,7 +20,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
+//当我们的任务需要同时用到多个数据库表，一般就会创建service层作为中间层来提供服务，所以下面就立刻自动注入questionMapper和userMapper等
+//并且用DTO来完成这些类之间的数据传输
 @Service
 public class QuestionService {
     @Autowired
@@ -60,14 +61,14 @@ public class QuestionService {
         questionQueryDTO.setPage(offset);
         List<Question> questions = questionExtMapper.selectBySearch(questionQueryDTO);
         List<QuestionDTO> questionDTOList=new ArrayList<>();
-        for (Question question : questions) {
+        for (Question question : questions) {   //遍历所有question找到所有对应的创建者
             User user=userMapper.selectByPrimaryKey(question.getCreator());
             QuestionDTO questionDTO=new QuestionDTO();
-            BeanUtils.copyProperties(question,questionDTO);
-            questionDTO.setUser(user);
-            questionDTOList.add(questionDTO);
+            BeanUtils.copyProperties(question,questionDTO);//spring自带的工具类方法，会自动将question类中变量值赋给questionDTO中对应的变量
+            questionDTO.setUser(user);      //将每一个question的创建者信息存入user对象
+            questionDTOList.add(questionDTO);   //用集合保存
         }
-        paginationDTO.setData(questionDTOList);
+        paginationDTO.setData(questionDTOList); //把集合赋给paginationDTO的data集合，这个集合会传给前端遍历显示
         return paginationDTO;
     }
 
@@ -106,7 +107,7 @@ public class QuestionService {
         return paginationDTO;
     }
 
-    public QuestionDTO getById(Long id) {
+    public QuestionDTO getById(Long id) {//根据问题的ID找到这个问题的相关信息并传给questionDTO再返回
         Question question=questionMapper.selectByPrimaryKey(id);
         if (question==null){
             throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);

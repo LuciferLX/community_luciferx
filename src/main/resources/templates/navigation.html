@@ -4,7 +4,7 @@
 
 <body>
 
-<div th:fragment="nav">
+<div th:fragment="nav"><!--定义成名为nav的模块，别的html文件可以使用th:insert或th:replace来调用这个模块-->
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -28,7 +28,7 @@
                     <li class="dropdown" th:if="${session.user != null}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <span th:text="${session.user.getName()}"></span><!--显示用户的名字-->
-                            <span class="caret"></span>
+                            <span class="caret"></span><!--这是一个小三角提示存在下拉菜单-->
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="/profile/questions">我的问题</a></li>

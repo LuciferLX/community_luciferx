@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 @Controller
-public class IndexController {
+public class IndexController {  //当有用户访问index页面时，代码会先从数据库中获取需要显示的数据再把index返回给调用者看
     @Autowired
     private QuestionService questionService;
     @GetMapping("/")
@@ -18,7 +18,7 @@ public class IndexController {
                         @RequestParam(name="search",required = false) String search
                         ){    //默认每一页显示五条信息
         PaginationDTO pagination=questionService.list(search,page,size);
-        model.addAttribute("pagination",pagination);
+        model.addAttribute("pagination",pagination);//这个包含分页信息的model将会传给index.html
         model.addAttribute("search",search);
         return "index";
     }

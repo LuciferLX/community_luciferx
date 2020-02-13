@@ -25,26 +25,26 @@
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 发现</h2>
             <hr>
-            <div class="media" th:each="question : ${pagination.data}">
+            <div class="media" th:each="question : ${pagination.data}"><!--用th:each来循环遍历-->
                 <div class="media-left">
                     <a href="#">
                         <img class="media-object img-rounded"
-                             th:src="${question.user.avatarUrl}">
+                             th:src="${question.user.avatarUrl}"><!--用th:src来显示每个头像链接的图-->
                     </a>
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">
-                        <a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a>
+                        <a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a><!--用th:text来显示数据库中存储的对应数据-->
                     </h4>
                     <span th:text="${question.description}"></span> <br>
                     <span class="text-desc"><span th:text="${question.commentCount}"></span> 个回复 •
                         <span th:text="${question.viewCount}"></span> 次浏览 • <span  th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd HH:mm')}"></span></span>
                 </div>
             </div>
-            <nav aria-label="Page navigation">
+            <nav aria-label="Page navigation"><!--bootstrap中拷贝的分页模块，搭配从indexController传来的model就实现分页啦-->
                 <ul class="pagination">
                     <li th:if="${pagination.showFirstPage}">
-                        <a th:href="@{/(page=1,search=${search})}" aria-label="Previous">
+                        <a th:href="@{/(page=1,search=${search})}" aria-label="Previous"><!--href标签会把这五个组件拼接起来-->
                             <span aria-hidden="true">&lt;&lt;</span>
                         </a>
                     </li>
@@ -53,7 +53,7 @@
                             <span aria-hidden="true">&lt;</span>
                         </a>
                     </li>
-                    <li th:each="page : ${pagination.pages}" th:class="${pagination.page==page}?'active':''">
+                    <li th:each="page : ${pagination.pages}" th:class="${pagination.page==page}?'active':''"><!--设置当前页面的数字为高亮即active-->
                         <a th:href="@{/(page=${page},search=${search})}" th:text="${page}">
 
                         </a>

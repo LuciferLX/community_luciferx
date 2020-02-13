@@ -10,6 +10,7 @@
     <script src="js/bootstrap.min.js" type="application/javascript"></script>
 </head>
 <body>
+<!--点击右上角选我的问题之后出现的简介页面-->
 <div th:insert="~{navigation :: nav}"></div>
 <div class="container-fluid main profile">
     <div class="row">
@@ -90,7 +91,7 @@
         </div>
 
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <div class="list-group section">
+            <div class="list-group section"><!--套用bootstrap列表组模版并设置高亮-->
                 <a href="/profile/questions"
                    th:class="${section=='questions'}?'active list-group-item':'list-group-item'">我的问题</a>
                 <a href="/profile/replies" th:class="${section=='replies'}?'active list-group-item':'list-group-item'">
