@@ -109,7 +109,7 @@ body {
     margin-top: 5px;
 }
 
-.menu.icon {
+.menu.icon {/*鼠标不悬浮时会调用icon原本的样式*/
     margin-right: 6px;
     font-size: 15px;
     cursor: pointer;
@@ -128,7 +128,7 @@ body {
     color: #499ef3;
 }
 
-.menu .icon:hover {
+.menu .icon:hover {/*鼠标悬浮时会进一步调用icon的hover对应的样式，也就是变成蓝色*/
     color: #499ef3;
 }
 

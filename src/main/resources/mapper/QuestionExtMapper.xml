@@ -12,6 +12,7 @@
         <result column="LIKE_COUNT" jdbcType="INTEGER" property="likeCount"/>
         <result column="TAG" jdbcType="VARCHAR" property="tag"/>
     </resultMap>
+    <!--id就对应QuestionExtMapper接口中定义的方法名字，这里是实现了阅读数累加功能-->
     <update id="incView" parameterType="life.majiang.community.model.Question">
     update QUESTION
     set

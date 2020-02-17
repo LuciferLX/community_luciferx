@@ -92,7 +92,7 @@ public class CommentService {
         notificationMapper.insert(notification);
     }
 
-    public List<CommentDTO> listByTargetId(Long id, CommentTypeEnum type) {
+    public List<CommentDTO> listByTargetId(Long id, CommentTypeEnum type) {//当传入的type是question时返回对问题的所有回复，反之返回对某一评论的所有二级评论
         CommentExample commentExample = new CommentExample();
         commentExample.createCriteria().andParentIdEqualTo(id).andTypeEqualTo(type.getType());
         commentExample.setOrderByClause("gmt_create desc");     //按照时间倒序排列

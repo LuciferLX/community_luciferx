@@ -10,7 +10,7 @@
     <script src="js/bootstrap.min.js" type="application/javascript"></script>
 </head>
 <script type="application/javascript">
-    window.onload=function () {
+    window.onload=function () {<!--当窗口的closable为true时会自动关闭该页面，用于从别的页面登录后自动跳转至主页时关闭主页-->
         var closable = window.localStorage.getItem("closable");
         if(closable=="true"){
             window.close();

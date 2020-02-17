@@ -17,10 +17,10 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-public class CommentController {
+public class CommentController {//评论功能
     @Autowired
     private CommentService commentService;
-
+    //Spring中用@RequestBody就能接收数据变成对象，用@ResponseBody就能将对象自定序列化为JSON传给前端
     @ResponseBody
     @RequestMapping(value = "/comment", method = RequestMethod.POST)
     public Object post(@RequestBody CommentCreateDTO commentCreateDTO,

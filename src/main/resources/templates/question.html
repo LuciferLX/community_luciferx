@@ -59,7 +59,7 @@
                 <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             </div>
 
-            <!--回复-->
+            <!--回复列表-->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h4>
                     <span th:text="${question.commentCount}"></span> 个回复
@@ -80,9 +80,9 @@
                             <div th:text="${comment.content}"></div>
                             <div class="menu">
                                 <span class="glyphicon glyphicon-thumbs-up icon"></span>
-                                <span th:data-id="${comment.id}" onclick="collapseComments(this)" class="comment-icon">
+                                <span th:data-id="${comment.id}" onclick="collapseComments(this)" class="comment-icon"><!--点击时去调用collapseComments方法-->
                                     <span class="glyphicon glyphicon-comment"></span>
-                                    <span th:text="${comment.commentCount}"></span>
+                                    <span th:text="${comment.commentCount}"></span><!--显示评论数-->
                                 </span>
                                 <span class="pull-right"
                                       th:text="${#dates.format(comment.gmtCreate,'yyyy-MM-dd')}"></span>
@@ -124,8 +124,9 @@
                         </div>
                     </div>
                     <input type="hidden" id="question_id" th:value="${question.id}">
-                    <textarea class="form-control comment" rows="6" id="comment_content"></textarea>
+                    <textarea class="form-control comment" rows="6" id="comment_content"></textarea><!--输入的文本框-->
                     <button type="button" class="btn btn-success btn-comment" onclick="post()">回复</button>
+                    <!--将按钮绑定post方法-->
                 </div>
             </div>
         </div>

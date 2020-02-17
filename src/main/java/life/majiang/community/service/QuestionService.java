@@ -145,7 +145,7 @@ public class QuestionService {
     public void incView(Long id) {
         Question question=new Question();
         question.setId(id);
-        question.setViewCount(1);
+        question.setViewCount(1);//设置每次增加1阅读量
         questionExtMapper.incView(question);
     }
 

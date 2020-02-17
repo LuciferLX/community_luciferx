@@ -1,6 +1,6 @@
 package life.majiang.community.enums;
 
-public enum CommentTypeEnum {
+public enum CommentTypeEnum {//用来表示回复的是对问题的回复还是对评论的回复
     QUESTION(1),COMMENT(2);
     private Integer type;
 
