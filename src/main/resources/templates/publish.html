@@ -36,6 +36,7 @@
                               cols="30"
                               rows="10"></textarea>
                 </div>
+                <!--引入editor.md实现了富文本编辑，可以将HTML转换为markdown格式存入数据库-->
                 <script type="text/javascript">
                     $(function () {
                         var editor = editormd("question-editor", {
@@ -55,7 +56,7 @@
                 <div class="form-group">
                     <label for="tag">添加标签：</label>
                     <input type="text" class="form-control" th:value="${tag}" id="tag" name="tag" autocomplete="off"
-                           placeholder="输入标签,以，号分割" onclick="showSelectTag()">
+                           placeholder="输入标签,以，号分割" onclick="showSelectTag()"><!--点击文本框时才显示标签库-->
                     <div id="select-tag" class="publish-tag-tab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" th:each="selectCategory,selectCategoryStat:${tags}"
@@ -64,6 +65,7 @@
                                    data-toggle="tab" th:text="${selectCategory.categoryName}"></a>
                             </li>
                         </ul>
+                        <!--规范标签库，点击标签即可添加-->
                         <div class="tab-content">
                             <div role="tabpanel" th:id="${selectCategory.categoryName}"
                                  th:each="selectCategory:${tags}"

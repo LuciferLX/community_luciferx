@@ -34,6 +34,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="question-view">
                     <textarea style="display:none;" th:text="${question.description}"></textarea>
                 </div>
+                <!--在展示问题描述时需要将markdown转换回HTML显示-->
                 <script type="text/javascript">
                     $(function () {
                         editormd.markdownToHTML("question-view", {});
@@ -154,7 +155,7 @@
                 <h4>更多信息</h4>
                 <img src="/images/githubCat.jpg" class="img-thumbnail question-wechat">
             </div>
-            <!--相关问题-->
+            <!--按照标签展示相关问题-->
             <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h4>相关问题</h4>

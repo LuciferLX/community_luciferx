@@ -14,9 +14,9 @@ public class IndexController {  //当有用户访问index页面时，代码会�
     @GetMapping("/")
     public String index(Model model,
                         @RequestParam(name="page",defaultValue = "1") Integer page,
-                        @RequestParam(name="size",defaultValue = "5") Integer size,
-                        @RequestParam(name="search",required = false) String search
-                        ){    //默认每一页显示五条信息
+                        @RequestParam(name="size",defaultValue = "5") Integer size,//默认每一页显示五条信息
+                        @RequestParam(name="search",required = false) String search//传入搜索信息
+                        ){
         PaginationDTO pagination=questionService.list(search,page,size);
         model.addAttribute("pagination",pagination);//这个包含分页信息的model将会传给index.html
         model.addAttribute("search",search);

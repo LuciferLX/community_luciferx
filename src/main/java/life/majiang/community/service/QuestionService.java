@@ -31,7 +31,7 @@ public class QuestionService {
     @Autowired
     private QuestionExtMapper questionExtMapper;
 
-    public PaginationDTO list(String search, Integer page, Integer size) {
+    public PaginationDTO list(String search, Integer page, Integer size) {//根据传入的search值返回所有包含的问题
         if (StringUtils.isNotBlank(search)){
             String[] tags = StringUtils.split(search, " ");
             search = Arrays.stream(tags).collect(Collectors.joining("|"));
@@ -153,7 +153,7 @@ public class QuestionService {
         if (StringUtils.isBlank(queryDTO.getTag())){
             return new ArrayList<>();
         }
-        String[] tags = StringUtils.split(queryDTO.getTag(), ",");
+        String[] tags = StringUtils.split(queryDTO.getTag(), ",");//先用逗号分割得到所有标签
         String regexpTag = Arrays.stream(tags).collect(Collectors.joining("|"));
         Question question=new Question();
         question.setId(queryDTO.getId());

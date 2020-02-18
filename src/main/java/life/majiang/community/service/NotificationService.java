@@ -68,7 +68,7 @@ public class NotificationService {
         return notificationMapper.countByExample(notificationExample);
     }
 
-    public NotificationDTO read(Long id, User user) {
+    public NotificationDTO read(Long id, User user) {//将通知标记为已读状态
         Notification notification = notificationMapper.selectByPrimaryKey(id);
         if (notification == null) {
             throw new CustomizeException(CustomizeErrorCode.NOTIFICATION_NOT_FOUND);

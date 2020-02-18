@@ -25,7 +25,7 @@
     COMMENT_COUNT = COMMENT_COUNT + #{commentCount,jdbcType=INTEGER}
     where id = #{id}
   </update>
-
+    <!--搜索具有相同标签的除了自身以外的所有问题，以正则表达式匹配-->
     <select id="selectRelated" parameterType="life.majiang.community.model.Question" resultMap="BaseResultMap">
     select * from QUESTION where id !=#{id} and tag regexp #{tag}
   </select>
@@ -38,7 +38,7 @@
             </if>
         </where>
     </select>
-
+    <!--搜索具有相同文本的所有问题，以正则表达式匹配，倒序展示-->
   <select id="selectBySearch" parameterType="life.majiang.community.dto.QuestionQueryDTO" resultMap="BaseResultMap">
     select * from QUESTION
     <where>

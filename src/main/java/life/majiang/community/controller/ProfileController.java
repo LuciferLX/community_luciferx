@@ -19,7 +19,7 @@ public class ProfileController {
     private QuestionService questionService;
     @Autowired
     private NotificationService notificationService;
-    @GetMapping("/profile/{action}")
+    @GetMapping("/profile/{action}")//根据传入的action执行不同的逻辑
     public String profile(HttpServletRequest request,
                           @PathVariable(name = "action") String action,
                           Model model,

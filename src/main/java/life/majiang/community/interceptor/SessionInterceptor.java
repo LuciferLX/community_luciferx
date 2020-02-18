@@ -33,8 +33,8 @@ public class SessionInterceptor implements HandlerInterceptor {//这就是一个
                     List<User> users = userMapper.selectByExample(userExample);
                     if (users.size() != 0) {
                         request.getSession().setAttribute("user", users.get(0));
-                        Long unreadCount=notificationService.unreadCount(users.get(0).getId());
-                        request.getSession().setAttribute("unreadCount",unreadCount);
+                        Long unreadCount=notificationService.unreadCount(users.get(0).getId());//成功登陆后立刻获取是否存在未读通知
+                        request.getSession().setAttribute("unreadCount",unreadCount);//将通知数量通过session传给前端
                     }
                     break;
                 }
