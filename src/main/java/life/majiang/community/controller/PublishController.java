@@ -63,7 +63,7 @@ public class PublishController {
             model.addAttribute("error", "标签不能为空");
             return "publish";
         }
-        String invalid = TagCache.filterInvalid(tag);
+        String invalid = TagCache.filterInvalid(tag);//校验是否存在不存在于标签库的标签
         if (StringUtils.isNotBlank(invalid)) {
             model.addAttribute("error", "输入了非法标签:" + invalid);
             return "publish";

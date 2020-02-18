@@ -23,7 +23,7 @@ import java.util.UUID;
  *
  */
 @Controller
-@Slf4j   //lombok中会自动加载log的注解
+@Slf4j   //lombok中的注解，功能为自动加载log
 public class AuthorizeController {
 
     @Autowired

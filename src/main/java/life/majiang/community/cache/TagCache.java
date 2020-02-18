@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class TagCache {
+public class TagCache {//创建标签库的多个门类并加入对应元素
     public static List<TagDTO> get(){
         List<TagDTO> tagDTOS = new ArrayList<>();
         TagDTO program = new TagDTO();
@@ -40,10 +40,10 @@ public class TagCache {
         return tagDTOS;
     }
 
-    public static String filterInvalid(String tags){
+    public static String filterInvalid(String tags){//筛选出所有不属于标签库的非法标签
         String[] split = StringUtils.split(tags, ",");
         List<TagDTO> tagDTOS=get();
-        List<String> tagList = tagDTOS.stream().flatMap(tag -> tag.getTags().stream()).collect(Collectors.toList());
+        List<String> tagList = tagDTOS.stream().flatMap(tag -> tag.getTags().stream()).collect(Collectors.toList());//把多个集合中的所有标签降维成一个大集合
         String invalid = Arrays.stream(split).filter(t -> !tagList.contains(t)).collect(Collectors.joining(","));
         return invalid;
     }

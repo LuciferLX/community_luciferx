@@ -111,10 +111,10 @@ function showSelectTag() {
     $("#select-tag").show();
 }
 
-function selectTag(e) {
+function selectTag(e) {//点击标签时在文本框内实现相应标签添加功能
     var value=e.getAttribute("data-tag");
     var previous = $("#tag").val();
-    if (previous.indexOf(value) == -1) {
+    if (previous.indexOf(value) == -1) {//防止重复添加
         if (previous) {
             $("#tag").val(previous + ',' + value);
         } else {
