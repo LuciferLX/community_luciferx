@@ -14,8 +14,9 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 
 /**
- * 设置一个定时任务，每10000毫秒执行一次或者可以设置每天某一时刻自动执行一次
- * 暂时设置热门标签的排序算法为：查看当前标签的问题数目和这些问题下的回复数，两个数字加权求和，以标签为键，加权和为值存放在Map中，从高到低排列
+ * 设置一个定时任务，每3小时执行一次或者可以设置每天某一时刻自动执行一次
+ * 暂时设置热门标签的排序算法为：查看当前标签的问题数目和这些问题下的回复数，两个数字加权求和，以标签为键，加权和为值存放在Map中，
+ * 然后使用一个优先队列获取前5热度的标签转存于list中用于展示在index页面上
  */
 @Component
 @Slf4j
@@ -27,7 +28,7 @@ public class HotTagTasks {
     @Autowired
     private HotTagCache hotTagCache;
 
-    @Scheduled(fixedRate = 10000)
+    @Scheduled(fixedRate = 1000*60*60*3)
     //@Scheduled(cron = "0 0 1 * * *")
     public void hotTagSchedule() {
         int offset = 0;
@@ -50,16 +51,7 @@ public class HotTagTasks {
             }
             offset += limit;
         }
-        hotTagCache.setTags(priorities);
-        hotTagCache.getTags().forEach(
-                (k, v) -> {
-                    System.out.print(k);
-                    System.out.print(":");
-                    System.out.print(v);
-                    System.out.println();
-
-                }
-        );
+        hotTagCache.updateTags(priorities);
         log.info("hotTagSchedule stop {}", new Date());
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @MapperScan("life.majiang.community.mapper")
-//下面这个注解会在后台创建一个定时任务
+//下面这个注解会在后台开启一个定时任务
 @EnableScheduling
 public class CommunityApplication {
 
