@@ -20,6 +20,20 @@
                     </div>
                     <button type="submit" class="btn btn-default">搜索</button>
                 </form>
+                <ul class="nav navbar-nav">
+                    <script>
+                        function clickNav(label) {
+                            gtag('event','click',{
+                                'event_category':'LINK',
+                                'event_label':label,
+                                'transport_type':'NAV'
+                            })
+                        }
+                    </script>
+                    <li th:each="ad : ${#httpServletRequest.getServletContext().getAttribute('ads')}">
+                        <a th:herf="${ad.url}" th:text="${ad.title}" th:onclick="clickNav([[${ad.title}]])" target="_blank"></a>
+                    </li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li th:if="${session.user!=null}"><!--如果当前用户已经登录，就显示发布，通知等功能-->
                         <a href="/publish">发布</a>
